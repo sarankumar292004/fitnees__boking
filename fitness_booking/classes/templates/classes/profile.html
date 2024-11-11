@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Bookings</title>
+</head>
+<body>
+    <h1>All Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>{{ booking.fitness_class.name }} ({{ booking.fitness_class.start_time }} - {{ booking.fitness_class.end_time }})
+                <a href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'class_list' %}">Back to classes</a>
+</body>
+</html>

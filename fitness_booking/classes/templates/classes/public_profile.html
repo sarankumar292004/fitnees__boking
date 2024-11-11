@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Profile</title>
+</head>
+<body>
+    <h1>Welcome to the Fitness Center</h1>
+
+    <h2>Available Classes</h2>
+    <ul>
+        {% for class in classes %}
+            <li>{{ class.name }}: {{ class.start_time }} - {{ class.end_time }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Bookings</h2>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                {{ booking.fitness_class.name }} booked on {{ booking.booking_date }}
+                <a href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'class_list' %}">Back to Class List</a>
+</body>
+</html>

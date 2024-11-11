@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ class.name }}</title>
+</head>
+<body>
+    <h1>{{ class.name }}</h1>
+    <p>{{ class.description }}</p>
+    <p>Start: {{ class.start_time }}</p>
+    <p>End: {{ class.end_time }}</p>
+    <p>Participants:</p>
+    <ul>
+        {% for participant in participants %}
+            <li>{{ participant.user.username }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_class' class.id %}">Book this class</a>
+    <a href="{% url 'class_list' %}">Back to classes</a>
+</body>
+</html>

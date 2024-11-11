@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Classes</title>
+</head>
+<body>
+    <h1>Available Classes</h1>
+    <ul>
+        {% for class in classes %}
+            <li>
+                {{ class.name }} ({{ class.start_time }} - {{ class.end_time }})
+                <a href="{% url 'class_detail' class.id %}">Details</a>
+                <a href="{% url 'book_class' class.id %}">Book</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'public_profile' %}">My Profile</a>
+</body>
+</html>
